@@ -20,6 +20,7 @@ public class PostContactHttpApi {
 
     @PostMapping
     public ResponseEntity<String> post(@RequestBody ContactHttpBody body) {
+        System.out.println("HttpApi: ---- " + Thread.currentThread() + " -> " + Thread.currentThread().getId());
         repository.add(body.toContact());
         return ResponseEntity.ok().build();
     }
